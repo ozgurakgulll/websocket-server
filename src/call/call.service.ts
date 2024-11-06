@@ -19,14 +19,14 @@ export class CallService {
   private readonly server: Server;
   private rooms: Map<string, Room> = new Map(); // Oda veri yapısı
   constructor(
-    @InjectQueue('availableUsersQueue')
-    private availableUsersQueue: Queue<User>,
-    @InjectQueue('callQueue') private callQueue: Queue<Room>,
+      @InjectQueue('availableUsersQueue')
+      private availableUsersQueue: Queue<User>,
+      @InjectQueue('callQueue') private callQueue: Queue<Room>,
   ) {}
 
   private async initRoom(
-    currentUser: User,
-    availableUser: User,
+      currentUser: User,
+      availableUser: User,
   ): Promise<Room> {
     const roomId = uuidv4().substring(0, 5);
     const room: Room = {
@@ -62,8 +62,8 @@ export class CallService {
 
   @SubscribeMessage('events')
   public async matchMaking(
-    @MessageBody() data: { peerId: string },
-    @ConnectedSocket() client: Socket,
+      @MessageBody() data: { peerId: string },
+      @ConnectedSocket() client: Socket,
   ): Promise<any> {
     console.log('NEW WEBSOCKET REQUEST WAS RECEIVED');
 
@@ -105,8 +105,8 @@ export class CallService {
 
   @SubscribeMessage('chatMessage')
   public handleChatMessage(
-    @MessageBody() data: { roomId: string, message: string },
-    @ConnectedSocket() client: Socket,
+      @MessageBody() data: { roomId: string, message: string },
+      @ConnectedSocket() client: Socket,
   ) {
     console.log('Received chat message:', data);
     const room = this.rooms.get(data.roomId);
@@ -116,8 +116,8 @@ export class CallService {
   }
   @SubscribeMessage('sendMessage')
   public handleMessage(
-    @MessageBody() data: { roomId: string, message: string },
-    @ConnectedSocket() client: Socket,
+      @MessageBody() data: { roomId: string, message: string },
+      @ConnectedSocket() client: Socket,
   ) {
     console.log('Received send message:', data.message);
     const room = this.rooms.get(data.roomId);
