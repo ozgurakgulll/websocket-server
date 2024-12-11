@@ -14,7 +14,7 @@ import {
 import {Server, Socket} from 'socket.io';
 
 @Injectable()
-@WebSocketGateway(0, { cors: { origin: '*' } })
+@WebSocketGateway(0, { cors: { origin: '*' }, transports: ['polling'] })
 export class CallService implements OnGatewayDisconnect {
   @WebSocketServer()
   private readonly server: Server;
