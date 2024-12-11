@@ -9,9 +9,9 @@ import { BullModule } from '@nestjs/bull';
     CallModule,
     BullModule.forRoot({
       redis: {
-        host: 'localhost',
+        host: 'redis.railway.internal',
         port: 6379,
-        password: 'Saw1dfsaVXd134SDFa_123543',
+        password: 'gwMGHDYpeljnXxGwgDNgPcjZzBWVXoog',
       },
     }),
   ],
