@@ -14,7 +14,7 @@ import {
 import {Server, Socket} from 'socket.io';
 
 @Injectable()
-@WebSocketGateway(5555, { cors: { origin: '*' } })
+@WebSocketGateway(0, { cors: { origin: '*' } })
 export class CallService implements OnGatewayDisconnect {
   @WebSocketServer()
   private readonly server: Server;
