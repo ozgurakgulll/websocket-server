@@ -11,7 +11,8 @@ import { BullModule } from '@nestjs/bull';
       redis: {
         host: 'redis.railway.internal',
         port: 6379,
-        password: 'gwMGHDYpeljnXxGwgDNgPcjZzBWVXoog',
+        password: 'uxNaCRyYJmdNhOhESticzEFSTwgbZEjv',
+        username:'default'
       },
     }),
   ],
