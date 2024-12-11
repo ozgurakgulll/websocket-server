@@ -8,12 +8,7 @@ import { BullModule } from '@nestjs/bull';
   imports: [
     CallModule,
     BullModule.forRoot({
-      redis: {
-        host: 'redis.railway.internal',
-        port: 6379,
-        password: 'uxNaCRyYJmdNhOhESticzEFSTwgbZEjv',
-        username:'default'
-      },
+      redis: "redis://default:uxNaCRyYJmdNhOhESticzEFSTwgbZEjv@autorack.proxy.rlwy.net:56790",
     }),
   ],
   controllers: [AppController],
